@@ -12,6 +12,7 @@ public class Archetype {
     private String name;
     private int damages;
     private int life;
+    private int maxLife;
     private int initiative;
 
     /**
@@ -22,9 +23,9 @@ public class Archetype {
         this.name = n;
         this.damages = d;
         this.life = l;
+        this.maxLife = l;
         this.initiative= i;
     }
-
 
     /**
      *
@@ -42,9 +43,20 @@ public class Archetype {
         return this.life;
     }
 
+    public int getMaxLife(){
+        return this.maxLife;
+    }
+
     public int getInitiative(){
         return this.initiative;
     }
+
+    public int hurt(int dmg){
+        this.life = this.life-dmg;
+        return this.life;
+    }
+
+    public void displayPerso()
 }
 
 

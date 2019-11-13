@@ -13,10 +13,17 @@ public class Main {
         int myChoice;
 
         System.out.println("Application has started");
-        System.out.println("welcome to the game");
+        System.out.println("Welcome to the game");
 
-        /*Command h = new Command(0, "help");
-        System.out.println(h.getIndex()+ " "+ h.getHelpMe());*/
+
+
+        Archetype perso1 = new Archetype("hugo", 100, 50, 10);
+
+
+        System.out.println( perso1.getLife() + "/" + perso1.getMaxLife() );
+        perso1.hurt(30);
+        System.out.println( perso1.getLife() + "/" + perso1.getMaxLife() );
+
 
         Command.displayHelpCommands();
 
@@ -29,6 +36,10 @@ public class Main {
                 Command.processCommand(myChoice);
             }
         } while(myChoice != 1);
+
+
+
+
 
 
     }

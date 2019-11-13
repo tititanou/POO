@@ -28,7 +28,7 @@ public class Archetype {
     }
 
     /**
-     *
+     * Getters of the attributes
      */
 
     public String getName(){
@@ -51,12 +51,23 @@ public class Archetype {
         return this.initiative;
     }
 
+    /**
+     * Method to hurt a player
+     */
     public int hurt(int dmg){
         this.life = this.life-dmg;
         return this.life;
     }
 
-    public void displayPerso()
-}
+    /**
+     * Class surchages toString method in order to return the character and his attributes
+     */
+    public String toString(){
+        String out =  "===== " + this.name + " =====\n";
+        out = out + "Life = " + this.life + " / " + this.maxLife + "\n";
+        out = out + "Damages = " + this.damages + "\n" + "Initiative = " + this.initiative +"\n";
 
+        return out;
+    }
+}
 

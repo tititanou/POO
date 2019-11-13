@@ -14,25 +14,39 @@ public class Command {
         this.index=  a;
         this.helpMe = b;
     }
-    public String getIndex (){
-        return this.;
+    public String getHelpMe (){
+        return this.helpMe;
+    }
+    public int getIndex(){
+        return this.index;
+    }
+
+    public static void displayHelpCommands(){
+        System.out.println("0 - help");
+    }
+    public static void displayQuitGame(){
+        System.out.println("1 - quit");
     }
 
 
+    
 
-    static int getInputChoice() {
+
         System.out.println("Input your choice");
+
+
 
         Scanner sc = new Scanner(System.in);
         String choice = sc.next();
 
         if (choice.equals("O")) {
             return 1;
+
         } else {
 
             return -1;
         }
-    }
+
 
 }
 

@@ -10,7 +10,8 @@ public class Command {
     private String helpMe;
     private String quitGame;
     private int index;
-    Command(int a,String b){
+
+    /* Command(int a,String b){
         this.index=  a;
         this.helpMe = b;
     }
@@ -18,8 +19,8 @@ public class Command {
         return this.;
     }
 
-
-
+     */
+    
     static int getInputChoice() {
         System.out.println("Input your choice");
 

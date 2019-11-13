@@ -15,18 +15,35 @@ public class Archetype {
     private int initiative;
 
     /**
+     * Constructor method
+     */
+
+    Archetype (String n , int d , int l , int i) {
+        this.name = n;
+        this.damages = d;
+        this.life = l;
+        this.initiative= i;
+    }
+
+
+    /**
      *
      */
-    public void getName(String name){
 
+    public String getName(){
+    return this.name;
     }
 
-    public void getDamages(int damages){
-
+    public int getDamages(){
+    return this.damages;
     }
 
-    public void getLife(int life){
+    public int getLife(){
+    return this.life;
+    }
 
+    public int getInitiative(){
+    return this.initiative;
     }
 }
 

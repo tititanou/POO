@@ -31,19 +31,19 @@ public class Archetype {
      */
 
     public String getName(){
-    return this.name;
+        return this.name;
     }
 
     public int getDamages(){
-    return this.damages;
+        return this.damages;
     }
 
     public int getLife(){
-    return this.life;
+        return this.life;
     }
 
     public int getInitiative(){
-    return this.initiative;
+        return this.initiative;
     }
 }
 

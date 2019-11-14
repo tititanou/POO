@@ -198,7 +198,8 @@ public class Command {
 
         }
         else if ( cmdNum == 6){
-
+            Warrior character = Command.newWarrior();
+            characList.add(character);
         }
         else if ( cmdNum == 7){
 

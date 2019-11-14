@@ -1,4 +1,4 @@
-package com.company;
+package com;
 
 public class Thief extends Archetype {
 

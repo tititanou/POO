@@ -1,8 +1,7 @@
-package com.company;
+package com;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
@@ -14,7 +13,7 @@ public class Main {
          */
         int myChoice;
 
-        List<com.company.Archetype> characList = new ArrayList<Archetype>();
+        List<Archetype> characList = new ArrayList<Archetype>();
 
        /* Archetype c1 = new Archetype("c1",1,1,1);
         com.company.Archetype c2 = new Archetype("c2",1,1,1);

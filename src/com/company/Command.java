@@ -23,7 +23,7 @@ public class Command {
         System.out.println("6 - Create a F*cking warrior");
         System.out.println("7 - Create a wizard");
         System.out.println("8 - Create a thief");
-
+        System.out.println("9 - Delete a character");
 
 
 
@@ -63,6 +63,9 @@ public class Command {
         }
         else if (choice.equals("8")){
             return 8;
+        }
+        else if (choice.equals("9")){
+            return 9;
         }
         else {
             return -1;
@@ -105,6 +108,7 @@ public class Command {
         // return the new object
         return character;
     }
+    public static void fight
 
     public static Warrior newWarrior(){
 
@@ -199,7 +203,7 @@ public class Command {
     }
 
     /**
-     * Methode to display characters' informations
+     * Method to display characters' informations
      */
     public static void displayCharacter(List<Archetype> characterList){
         System.out.println("Enter a character's index");
@@ -208,6 +212,29 @@ public class Command {
         if (characterIndex >= 0 && characterIndex < characterList.size()) {
             Archetype charac = characterList.get(characterIndex);
             System.out.println( "index choice n° " + characterIndex + "\n" + charac.toString() + "\n" + "=================");
+        }else{
+            System.out.println("Not valid");
+            Command.displayMenu();
+            Command.getInputChoice();
+        }
+    }
+
+    /**
+     * Method to delete a character
+     */
+    public static void deleteCharacter(List<Archetype> characList ){
+        System.out.println("Which character do you want to delete?\nPut the index");
+        Command.listCharacters(characList);
+        Scanner sc = new Scanner(System.in);
+        int characterIndex = sc.nextInt();
+        if (characterIndex >= 0 && characterIndex < characList.size()) {
+            System.out.println("Do you want to delete character n°" + characterIndex + "?\n Yes/No");
+            String input = sc.next();
+            String answer = input.toLowerCase();
+            if (answer.equals("yes")) {
+                Archetype charac = characList.remove(characterIndex);
+                System.out.println( charac.getClass().getSimpleName() + " " + charac.getName() + " has been deleted.");
+            }
         }else{
             System.out.println("Not valid");
             Command.displayMenu();
@@ -249,6 +276,9 @@ public class Command {
         else if ( cmdNum == 8){
             Thief thief = Command.newThief();
             characList.add(thief);
+        }
+        else if ( cmdNum == 9){
+            Command.deleteCharacter(characList);
         }
         else{
             Command.displayMenu();

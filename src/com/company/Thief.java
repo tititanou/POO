@@ -44,8 +44,31 @@ public class Thief extends Archetype {
       return out;
     }
 
-    // public int hurt(int dmg){
+    /**
+     * Method to dodge an attack
+     * @param dmg
+     * @param dodgeProba
+     * @return
+     */
+    public int hurt(int dmg , double dodgeProba){
         double R = Math.random();
-        //super.hurt();
-    // }
+        if (R > dodgeProba){
+        }
+        else {
+            super.hurt(dmg);
+        }
+        return this.getLife();
+    }
+
+    public int getDamages(){
+        double R = Math.random();
+        boolean canUseCriticalDamages = false;
+        if (R > criticalDamages){
+            canUseCriticalDamages = true;
+            return super.getDamages()*2;
+        }
+        else{
+            return super.getDamages();
+        }
+    }
 }

@@ -5,7 +5,7 @@ import com.Archetype;
 
 public class Warior extends Archetype {
 
-    private shield;
+    private int shield;
     /**
      * Constructor method
      *
@@ -19,9 +19,7 @@ public class Warior extends Archetype {
         this.shield=s;
     }
     public String toString(){
-        String out =  "===== " + this.name + " =====\n";
-        out = out + "Life = " + this.life + " / " + this.maxLife + "\n";
-        out = out + "Damages = " + this.damages + "\n" + "Initiative = " + this.initiative +"\n";
 
+        return super.toString()+" reste a faire !!!!!";
     }
 }

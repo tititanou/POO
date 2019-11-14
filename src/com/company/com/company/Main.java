@@ -14,10 +14,10 @@ public class Main {
          */
         int myChoice;
 
-        List<Archetype> characList = new ArrayList<Archetype>();
+        List<com.company.Archetype> characList = new ArrayList<Archetype>();
 
-        Archetype c1 = new Archetype("c1",1,1,1);
-        Archetype c2 = new Archetype("c2",1,1,1);
+       /* Archetype c1 = new Archetype("c1",1,1,1);
+        com.company.Archetype c2 = new Archetype("c2",1,1,1);
 
         characList.add( c1 );
         characList.add( c2 );
@@ -25,6 +25,8 @@ public class Main {
         characList.add(c3);
 
         Command.listCharacters(characList);
+
+        */
 
 
 
@@ -46,7 +48,7 @@ public class Main {
 
             // process command only of it is a valid one
             if (myChoice != -1) {
-                Command.processCommand(myChoice);
+                Command.processCommand(myChoice,characList);
             }
         } while(myChoice != 1);
 

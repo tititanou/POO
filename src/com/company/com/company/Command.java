@@ -19,7 +19,8 @@ public class Command {
         System.out.println("1 - Quit");
         System.out.println("2 - Create new character");
         System.out.println("3 - List created characters");
-        System.out.println("4 - Display character infos");
+        System.out.println("4 - Display character's infos");
+        System.out.println("5 - Begin a fight");
 
     }
 
@@ -45,6 +46,9 @@ public class Command {
         }
         else if(choice.equals("4")) {
             return 4;
+        }
+        else if (choice.equals("5")){
+            return 5;
         }
         else {
             return -1;
@@ -94,21 +98,26 @@ public class Command {
     public static void listCharacters(List<Archetype> characList){
         for(int i=0; i<characList.size(); i++){
             Archetype c = characList.get( i );
-            System.out.println( c + " " + i);
+            System.out.println( i + " - " + c.getName());
         }
     }
 
     /**
      * Methode to display characters' informations
      */
-    public static void displayCharacter(Archetype charac){
+    public static void displayCharacter(List<Archetype> characterList){
+        System.out.println("Enter a character's index");
+        Scanner sc = new Scanner(System.in);
+        int characterIndex = sc.nextInt();
+
+        Archetype charac = characterList.get(characterIndex);
         System.out.println(charac.toString());
     }
 
     /**
      * Process requested command
      */
-    public static void processCommand(int cmdNum){
+    public static void processCommand(int cmdNum, List<Archetype> characList){
 
         if( cmdNum == 0){
             Command.displayMenu();
@@ -117,12 +126,18 @@ public class Command {
             System.out.println("Good bye");
         }
         else if ( cmdNum == 2) {
-            Command.newCharacter();
+            Archetype character = Command.newCharacter();
+            characList.add(character);
         }
         else if ( cmdNum == 3) {
-
+            Command.listCharacters(characList);
         }
-
+        else if (cmdNum == 4) {
+            Command.displayCharacter(characList);
+        }
+        else if ( cmdNum == 5){
+            ;
+        }
         else{
             Command.displayMenu();
         }

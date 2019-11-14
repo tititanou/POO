@@ -27,6 +27,7 @@ public class Command {
 
 
 
+
     }
 
     /**
@@ -67,6 +68,7 @@ public class Command {
         else if (choice.equals("9")){
             return 9;
         }
+
         else {
             return -1;
         }
@@ -262,16 +264,23 @@ public class Command {
         }
         else if (cmdNum == 4) {
             Command.displayCharacter(characList);
+
         }
-        else if ( cmdNum == 5){
+        else if ( cmdNum == 5) {
+
+            System.out.println("Choose YOUR character: ");
+            Command.listCharacters(characList);
+
+            Command.displayCharacter(characList);
+            
 
         }
         else if ( cmdNum == 6){
             Warrior character = Command.newWarrior();
             characList.add(character);
+
         }
         else if ( cmdNum == 7){
-
         }
         else if ( cmdNum == 8){
             Thief thief = Command.newThief();

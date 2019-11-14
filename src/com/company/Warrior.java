@@ -4,6 +4,7 @@ package com.company;
 public class Warrior extends Archetype {
 
     private int shield;
+
     /**
      * Constructor method
      *
@@ -14,7 +15,7 @@ public class Warrior extends Archetype {
      */
     Warrior(String n, int d, int l, int s, int i) {
         super(n, d, l, i);
-        this.shield=s;
+        this.shield = s;
     }
 
     public int getShield() {
@@ -22,9 +23,23 @@ public class Warrior extends Archetype {
 
     }
 
-    public String toString(){
 
-        return super.toString()+ this.shield;
+    public int shieldHurt(int dmg) {
+
+        this.shield=this.shield-dmg;
+        if (shield<0){
+            super.hurt(-shield);
+            shield= 0;
+        }
+
+        return getLife();
+    }
+
+
+    public String toString() {
+
+        return super.toString() + "shield =" + this.shield;
 
     }
+
 }

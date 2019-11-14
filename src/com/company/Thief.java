@@ -2,8 +2,8 @@ package com.company;
 
 public class Thief extends Archetype {
 
-    private float dodgeProba;
-    private float criticalDamages;
+    private double dodgeProba;
+    private double criticalDamages;
 
 
     /**
@@ -15,7 +15,7 @@ public class Thief extends Archetype {
      * @param dodge Character's probability to dodge the attack
      * @param cd Character's probability to inflict critical damages
      */
-    Thief(String n, int d, int l, int i,float dodge, float cd ) {
+    Thief(String n, int d, int l, int i,double dodge, double cd ) {
         super(n, d, l, i);
         this.dodgeProba = dodge;
         this.criticalDamages = cd;
@@ -24,14 +24,14 @@ public class Thief extends Archetype {
     /**
      * To get the dodge probability
      */
-    public float getDodgeProba() {
+    public double getDodgeProba() {
         return dodgeProba;
     }
 
     /**
      * To get the critical damages probability
      */
-    public float getCriticalDamages() {
+    public double getCriticalDamages() {
         return criticalDamages;
     }
 
@@ -40,7 +40,12 @@ public class Thief extends Archetype {
      */
     public String toString(){
       String out = super.toString();
-      out = out + "Dodge = " + this.dodgeProba + "\n Critical Damages = " + this.criticalDamages;
+      out = out + "Dodge = " + this.dodgeProba + "\nCritical Damages = " + this.criticalDamages;
       return out;
     }
+
+    // public int hurt(int dmg){
+        double R = Math.random();
+        //super.hurt();
+    // }
 }

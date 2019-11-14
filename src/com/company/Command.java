@@ -155,6 +155,48 @@ public class Command {
         }
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
     }
+    /**
+     *Method to create a thief
+     */
+    public static Thief newThief(){
+
+        int L;
+        int I;
+        String N ;
+        int D;
+        double dodgeProba;
+        double C;
+
+        Scanner sc = new Scanner(System.in);
+
+        boolean isOK = false;
+        Thief character = null;
+        do {
+            try {
+                System.out.println("Enter a thief name:");
+                N = sc.next();
+                System.out.println("Enter damages: ");
+                D = sc.nextInt();
+                System.out.println("Enter life points: ");
+                L = sc.nextInt();
+                System.out.println("Enter initiative: ");
+                I = sc.nextInt();
+                System.out.println("Enter dodge: ");
+                dodgeProba = sc.nextDouble();
+                System.out.println("Enter critical damage: ");
+                C = sc.nextDouble();
+                character = new Thief (N, D, L, I, dodgeProba,C);
+                //System.out.println(character.toString());
+                isOK = true;
+            } catch (Exception e) {
+                System.out.println("Not valid. \n Create a new thief again.");
+                // consume the rest of characters from the standard input
+                sc.next();
+            }
+        }while( !isOK );
+        // return the new object
+        return character;
+    }
 
     /**
      * Methode to display characters' informations
@@ -205,7 +247,8 @@ public class Command {
 
         }
         else if ( cmdNum == 8){
-            
+            Thief thief = Command.newThief();
+            characList.add(thief);
         }
         else{
             Command.displayMenu();

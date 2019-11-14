@@ -65,10 +65,7 @@ public class Archetype {
     public String toString(){
         String out =  "===== " + this.name + " =====\n";
         out = out + "Life = " + this.life + " / " + this.maxLife + "\n";
-        out = out + "Damages = " + this.damages + "\n Initiative = " + this.initiative +"\n";
-
-
-
+        out = out + "Damages = " + this.damages + "\nInitiative = " + this.initiative +"\n";
         return out;
     }
 }

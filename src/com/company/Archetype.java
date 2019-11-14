@@ -1,4 +1,4 @@
-package com;
+package com.company;
 /**
  * Creation of the java class Archetype
  */

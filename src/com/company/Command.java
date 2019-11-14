@@ -108,8 +108,8 @@ public class Command {
         // return the new object
         return character;
     }
-    public static void fight
 
+    
     public static Warrior newWarrior(){
 
         int L;

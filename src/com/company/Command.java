@@ -26,6 +26,7 @@ public class Command {
 
 
 
+
     }
 
     /**
@@ -96,7 +97,44 @@ public class Command {
                 //System.out.println(character.toString());
                 isOK = true;
             } catch (Exception e) {
-                System.out.println("Mauvaise entrée. Recommencez.");
+                System.out.println("Not valid. \n Create a new Character again.");
+                // consume the rest of characters from the standard input
+                sc.next();
+            }
+        }while( !isOK );
+        // return the new object
+        return character;
+    }
+
+    public static Warrior newWarrior(){
+
+        int L;
+        int I;
+        String N ;
+        int D;
+        int S;
+
+        Scanner sc = new Scanner(System.in);
+
+        boolean isOK = false;
+        Warrior character = null;
+        do {
+            try {
+                System.out.println("Enter a Warrior Name: ");
+                N = sc.next();
+                System.out.println("Enter damages: ");
+                D = sc.nextInt();
+                System.out.println("Enter life points: ");
+                L = sc.nextInt();
+                System.out.println("Enter initiative: ");
+                I = sc.nextInt();
+                System.out.println("Enter shield point: ");
+                S = sc.nextInt();
+                character = new Warrior(N, D, L, I,S);
+                //System.out.println(character.toString());
+                isOK = true;
+            } catch (Exception e) {
+                System.out.println("Not valid. \n Create a new Warrior again.");
                 // consume the rest of characters from the standard input
                 sc.next();
             }

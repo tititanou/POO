@@ -1,7 +1,7 @@
 package com.company;
 
 
-public class Warior extends Archetype {
+public class Warrior extends Archetype {
 
     private int shield;
     /**
@@ -12,13 +12,19 @@ public class Warior extends Archetype {
      * @param l
      * @param i
      */
-    Warior(String n, int d, int l, int s, int i) {
+    Warrior(String n, int d, int l, int s, int i) {
         super(n, d, l, i);
         this.shield=s;
     }
-    public 
+
+    public int getShield() {
+        return shield;
+
+    }
+
     public String toString(){
 
-        return super.toString()+" reste a faire !!!!!";
+        return super.toString()+ this.shield;
+
     }
 }

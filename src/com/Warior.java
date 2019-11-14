@@ -1,5 +1,7 @@
-package com.company;
+package com;
 
+
+import com.Archetype;
 
 public class Warior extends Archetype {
 

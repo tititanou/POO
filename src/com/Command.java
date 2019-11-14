@@ -1,6 +1,5 @@
-package com.company;
+package com;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 

@@ -14,16 +14,23 @@ public class Thief extends Archetype {
      * @param l
      * @param i
      */
-
-    Thief(){
-        super("nooby", 0,1,0);
-    }
     Thief(String n, int d, int l, int i,float dodge, float cd ) {
         super(n, d, l, i);
         this.dodgeProba = dodge;
         this.criticalDamages = cd;
     }
 
+    public float getDodgeProba() {
+        return dodgeProba;
+    }
 
-    
+    public float getCriticalDamages() {
+        return criticalDamages;
+    }
+
+    public String toString(){
+      String out = super.toString();
+      out = out + "Dodge = " + this.dodgeProba + "\n Critical Damages = " + this.criticalDamages;
+      return out;
+    }
 }

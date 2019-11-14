@@ -20,6 +20,11 @@ public class Command {
         System.out.println("3 - List created characters");
         System.out.println("4 - Display character's infos");
         System.out.println("5 - Begin a fight");
+        System.out.println("6 - Create a F*cking warrior");
+        System.out.println("7 - Create a wizard");
+        System.out.println("8 - Create a thief");
+
+
 
     }
 
@@ -48,6 +53,15 @@ public class Command {
         }
         else if (choice.equals("5")){
             return 5;
+        }
+        else if (choice.equals("6")){
+            return 6;
+        }
+        else if (choice.equals("7")){
+            return 7;
+        }
+        else if (choice.equals("8")){
+            return 8;
         }
         else {
             return -1;
@@ -90,7 +104,6 @@ public class Command {
         // return the new object
         return character;
     }
-
     /**
      * Method to list created characters
      */
@@ -102,6 +115,7 @@ public class Command {
             System.out.println( i + " - " + c.getName());
 
         }
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     /**
@@ -113,7 +127,7 @@ public class Command {
         int characterIndex = sc.nextInt();
         if (characterIndex >= 0 && characterIndex < characterList.size()) {
             Archetype charac = characterList.get(characterIndex);
-            System.out.println( "index choice n° " + characterIndex + "\n" + charac.toString());
+            System.out.println( "index choice n° " + characterIndex + "\n" + charac.toString() + "\n" + "=================");
         }else{
             System.out.println("Not valid");
             Command.displayMenu();
@@ -143,7 +157,16 @@ public class Command {
             Command.displayCharacter(characList);
         }
         else if ( cmdNum == 5){
-            ;
+
+        }
+        else if ( cmdNum == 6){
+
+        }
+        else if ( cmdNum == 7){
+
+        }
+        else if ( cmdNum == 8){
+            
         }
         else{
             Command.displayMenu();

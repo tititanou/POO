@@ -95,9 +95,12 @@ public class Command {
      * Method to list created characters
      */
     public static void listCharacters(List<Archetype> characList){
+
+        System.out.println("~~~ Characters'list ~~");
         for(int i=0; i<characList.size(); i++){
             Archetype c = characList.get( i );
             System.out.println( i + " - " + c.getName());
+
         }
     }
 
@@ -108,9 +111,14 @@ public class Command {
         System.out.println("Enter a character's index");
         Scanner sc = new Scanner(System.in);
         int characterIndex = sc.nextInt();
-
-        Archetype charac = characterList.get(characterIndex);
-        System.out.println(charac.toString());
+        if (characterIndex >= 0 && characterIndex < characterList.size()) {
+            Archetype charac = characterList.get(characterIndex);
+            System.out.println(characterIndex + " - " + charac.toString());
+        }else{
+            System.out.println("Not valid");
+            Command.displayMenu();
+            Command.getInputChoice();
+        }
     }
 
     /**

@@ -15,7 +15,7 @@ public class Main {
 
         List<Archetype> characList = new ArrayList<Archetype>();
 
-       /* Archetype c1 = new Archetype("c1",1,1,1);
+        Archetype c1 = new Archetype("c1",1,1,1);
         com.company.Archetype c2 = new Archetype("c2",1,1,1);
 
         characList.add( c1 );
@@ -25,7 +25,7 @@ public class Main {
 
         Command.listCharacters(characList);
 
-        */
+
 
 
 

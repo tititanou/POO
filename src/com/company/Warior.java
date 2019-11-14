@@ -16,6 +16,7 @@ public class Warior extends Archetype {
         super(n, d, l, i);
         this.shield=s;
     }
+    public 
     public String toString(){
 
         return super.toString()+" reste a faire !!!!!";

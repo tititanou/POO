@@ -113,7 +113,7 @@ public class Command {
         int characterIndex = sc.nextInt();
         if (characterIndex >= 0 && characterIndex < characterList.size()) {
             Archetype charac = characterList.get(characterIndex);
-            System.out.println(characterIndex + " - " + charac.toString());
+            System.out.println( "index choice n° " + characterIndex + "\n" + charac.toString());
         }else{
             System.out.println("Not valid");
             Command.displayMenu();

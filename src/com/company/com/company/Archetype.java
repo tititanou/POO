@@ -67,6 +67,8 @@ public class Archetype {
         out = out + "Life = " + this.life + " / " + this.maxLife + "\n";
         out = out + "Damages = " + this.damages + "\n" + "Initiative = " + this.initiative +"\n";
 
+
+
         return out;
     }
 }

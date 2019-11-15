@@ -111,6 +111,11 @@ public class Command {
         return character;
     }
 
+    /**
+     * His method allows you to fight characters
+     * @param a1
+     * @param a2
+     */
     public static void fight(Archetype a1 , Archetype a2){
     Archetype c1;
     Archetype c2;
@@ -274,6 +279,47 @@ public class Command {
     }
 
     /**
+     *
+     * @return
+     */
+    public static Wizard newWizard() {
+        int L;
+        int I;
+        String N;
+        int D;
+        int MD;
+        int IMD;
+        Scanner sc = new Scanner(System.in);
+        boolean isOK = false;
+        Wizard character = null;
+        do {
+            try {
+                System.out.println("Enter a Wizard Name: ");
+                N = sc.next();
+                System.out.println("Enter damages: ");
+                D = sc.nextInt();
+                System.out.println("Enter life points: ");
+                L = sc.nextInt();
+                System.out.println("Enter initiative: ");
+                I = sc.nextInt();
+                System.out.println("Enter magic damages points: ");
+                MD = sc.nextInt();
+                System.out.println("Enter initial magic damages points: ");
+                IMD = sc.nextInt();
+                character = new Wizard(N, D, L, I, MD, IMD);
+                //System.out.println(character.toString());
+                isOK = true;
+            } catch (Exception e) {
+                System.out.println("Not valid. \n Create a new Wizard again.");
+                // consume the rest of characters from the standard input
+                sc.next();
+            }
+        } while (!isOK);
+        return character;
+    }
+
+
+    /**
      * Method to delete a character
      */
     public static void deleteCharacter(List<Archetype> characList ){
@@ -296,48 +342,58 @@ public class Command {
         }
     }
 
+    /**
+     *
+     * @param characList
+     * @param numSelect
+     * @return
+     * This method allows you to choose two characters to make them fight between them.
+     */
     private static Archetype selectCharacterForFighting(List<Archetype> characList, int numSelect){
         //---------- choice of player ----------
         Archetype myPlayer = null;
 
         do {
-            String answer;
+            String answer = "";
             try {
 
                 Command.listCharacters(characList);
                 System.out.println("Choose YOUR character: #" + numSelect);
                 Scanner sc = new Scanner(System.in);
-
-                int characterChoice = sc.nextInt();
+                answer = sc.next();
+                int characterChoice = Integer.parseInt(answer);
                 if (characterChoice >= 0 && characterChoice < characList.size()) {
                     myPlayer = characList.get(characterChoice);
                     System.out.println("Your choice is :\n " + myPlayer + "\n yes/no ?");
                     String input = sc.next();
                      answer = input.toLowerCase();
                     if (!answer.equals("yes")) {
-                        // if answer not equals "no" alors print (ta reponse est pas valide : answer)
                         if (!answer.equals("no")){
-                            System.out.println("HEY!!! I am not an idiot! Do not try to write:" + "  ---> " + answer + "\nJust say YES or NO");
+                            System.out.println("HEY!!! I am not an idiot!\n Stop writing this type of bullsh*t :" + "  ---> " + answer + "\nJust say YES or NO");
                         }
-                        //renvoyer vers les choix du player1
+
                         myPlayer = null;
                     }
 
                 }
             } catch (Exception e){
-                System.out.println("HEY!!! I am not an idiot! Do not try to write:" + "  ---> " + e.getCause() + "\nJust say YES or NO");
+                System.out.println("NOOOOOOOOO !!\nDon't be an idiot ! Do not say:" + "  ---> " + answer + "\nYou have to Enter an integer.\nLike: 69 ");
 
             }
         } while( myPlayer == null);
         return myPlayer;
     }
 
-
+    /**
+     *
+     * @param characList
+     *This method allows you to choose two characters to make them fight between them.
+     */
     public static void preparFight(List<Archetype>characList) {
 
         Archetype p1 = Command.selectCharacterForFighting(characList,1);
         Archetype p2 = Command.selectCharacterForFighting(characList,2);
-
+       // FIGHT
         Command.fight(p1,p2);
 
 
@@ -379,6 +435,8 @@ public class Command {
 
         }
         else if ( cmdNum == 7){
+            Wizard character = Command.newWizard();
+            characList.add(character);
         }
         else if ( cmdNum == 8){
             Thief thief = Command.newThief();

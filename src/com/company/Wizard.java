@@ -40,6 +40,18 @@ public class Wizard extends Archetype {
      *
      * 'YOU SHALL NOT PASS!'
      */
+    /*public int shieldHurt(int dmg) {
+
+        this.initialmagicdamages=this.initialmagicdamages-dmg;
+        if (shield<0){
+            super.hurt(-shield);
+            shield= 0;
+        }
+
+        return getLife();
+    }
+
+     */
     public String toString() {
 
         String out = super.toString();

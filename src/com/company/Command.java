@@ -156,7 +156,8 @@ public class Command {
         defender.hurt(dmg);
         System.out.println(assailant.getName() + " inflicts '" + dmg + " damages' points.");
         l = defender.getLife();
-        i = i ++;
+        System.out.println(defender.getName() + " has " + l + " life points.");
+        i = i + 1;
     }
     while (l > 0);
     System.out.println("The " + assailant.getClass().getSimpleName() + " named " + assailant.getName() + " is the winner." );
@@ -298,20 +299,34 @@ public class Command {
     private static Archetype selectCharacterForFighting(List<Archetype> characList, int numSelect){
         //---------- choice of player ----------
         Archetype myPlayer = null;
+
         do {
-            Command.listCharacters(characList);
-            System.out.println("Choose YOUR character: #"+numSelect);
-            Scanner sc = new Scanner(System.in);
-            int characterChoice = sc.nextInt();
-            if (characterChoice >= 0 && characterChoice < characList.size()) {
-                myPlayer = characList.get(characterChoice);
-                System.out.println("Your choice is :\n " + myPlayer + "\n yes/no ?");
-                String input = sc.next();
-                String answer = input.toLowerCase();
-                if (!answer.equals("yes")){
-                    //renvoyer vers les choix du player1
-                    myPlayer = null;
+            String answer;
+            try {
+
+                Command.listCharacters(characList);
+                System.out.println("Choose YOUR character: #" + numSelect);
+                Scanner sc = new Scanner(System.in);
+
+                int characterChoice = sc.nextInt();
+                if (characterChoice >= 0 && characterChoice < characList.size()) {
+                    myPlayer = characList.get(characterChoice);
+                    System.out.println("Your choice is :\n " + myPlayer + "\n yes/no ?");
+                    String input = sc.next();
+                     answer = input.toLowerCase();
+                    if (!answer.equals("yes")) {
+                        // if answer not equals "no" alors print (ta reponse est pas valide : answer)
+                        if (!answer.equals("no")){
+                            System.out.println("HEY!!! I am not an idiot! Do not try to write:" + "  ---> " + answer + "\nJust say YES or NO");
+                        }
+                        //renvoyer vers les choix du player1
+                        myPlayer = null;
+                    }
+
                 }
+            } catch (Exception e){
+                System.out.println("HEY!!! I am not an idiot! Do not try to write:" + "  ---> " + e.getCause() + "\nJust say YES or NO");
+
             }
         } while( myPlayer == null);
         return myPlayer;
@@ -323,8 +338,7 @@ public class Command {
         Archetype p1 = Command.selectCharacterForFighting(characList,1);
         Archetype p2 = Command.selectCharacterForFighting(characList,2);
 
-        // combat !!!!
-//        COMBAT(p1,p2);
+        Command.fight(p1,p2);
 
 
 

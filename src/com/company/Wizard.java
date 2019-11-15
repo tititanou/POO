@@ -18,9 +18,9 @@ public class Wizard extends Archetype {
      * @param l
      * @param i
      */
-    Wizard(String n, int d, int l, int md, int imd, int i) {
+    Wizard(String n, int d, int l, int md, int i) {
         super(n, d, l, i);
-        this.initialmagicdamages = imd;
+        this.initialmagicdamages = md;
         this.magicdamages = md;
     }
 
@@ -41,17 +41,9 @@ public class Wizard extends Archetype {
      *
      * 'YOU SHALL NOT PASS!'
      */
-    /*public int shieldHurt(int dmg) {
 
-        this.initialmagicdamages=this.initialmagicdamages-dmg;
-        if (shield<0){
-            super.hurt(-shield);
-            shield= 0;
-        }
-
-        return getLife();
-    }
-
+    /**
+     * Method to return the character and his attributes
      */
     public String toString() {
 
@@ -60,6 +52,9 @@ public class Wizard extends Archetype {
         return out;
     }
 
+    /**
+     * Method to hurt a opponent with magical damages
+     */
     public int getDamages() {
         int magicstock = this.magicdamages;
         magicdamages = magicdamages/2;

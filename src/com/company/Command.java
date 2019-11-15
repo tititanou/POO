@@ -10,7 +10,7 @@ public class Command {
 
 
     /**
-     * Display
+     * Display the commands list
      */
     public static void displayMenu(){
         System.out.println("====================");
@@ -112,7 +112,7 @@ public class Command {
     }
 
     /**
-     * His method allows you to fight characters
+     * This method allows 2 characters to fight
      * @param a1
      * @param a2
      */
@@ -168,7 +168,9 @@ public class Command {
     System.out.println("The " + assailant.getClass().getSimpleName() + " named " + assailant.getName() + " is the winner." );
     }
 
-
+    /**
+     * Method to create a warrior
+     */
     public static Warrior newWarrior(){
 
         int L;
@@ -279,8 +281,7 @@ public class Command {
     }
 
     /**
-     *
-     * @return
+     * Method to create a wizard
      */
     public static Wizard newWizard() {
         int L;
@@ -304,9 +305,7 @@ public class Command {
                 I = sc.nextInt();
                 System.out.println("Enter magic damages points: ");
                 MD = sc.nextInt();
-                System.out.println("Enter initial magic damages points: ");
-                IMD = sc.nextInt();
-                character = new Wizard(N, D, L, I, MD, IMD);
+                character = new Wizard(N, D, L, I, MD);
                 //System.out.println(character.toString());
                 isOK = true;
             } catch (Exception e) {
@@ -347,7 +346,7 @@ public class Command {
      * @param characList
      * @param numSelect
      * @return
-     * This method allows you to choose two characters to make them fight between them.
+     * This method allows you to select 1 fighter
      */
     private static Archetype selectCharacterForFighting(List<Archetype> characList, int numSelect){
         //---------- choice of player ----------
@@ -387,7 +386,7 @@ public class Command {
     /**
      *
      * @param characList
-     *This method allows you to choose two characters to make them fight between them.
+     *This method allows you to choose two characters to make them fight
      */
     public static void preparFight(List<Archetype>characList) {
 
@@ -448,9 +447,6 @@ public class Command {
         else{
             Command.displayMenu();
         }
-
     }
 
-
-    //int monEntier = Integer.parseInt(  myStringAMoi );
 }

@@ -23,9 +23,10 @@ public class Wizard extends Archetype {
         this.initialmagicdamages = imd;
         this.magicdamages = md;
     }
+
     /**
      * The magic damages are added to the normal damages the wizard makes.
-     * The magic damages are divided by two at every attack.
+     * The magic damages are divided by 2 at every attack.
      *
      * For example :
      *
@@ -43,8 +44,13 @@ public class Wizard extends Archetype {
     public String toString() {
 
         String out = super.toString();
-        out = out + "Degats Magiques = " + magicdamages + "/" + initialmagicdamages + "\n";
+        out = out + "Dégâts Magiques = " + magicdamages + "/" + initialmagicdamages + "\n";
         return out;
     }
 
+    public int getDamages() {
+        int magicstock = this.magicdamages;
+        magicdamages = magicdamages/2;
+        return super.getDamages() + magicstock;
+    }
 }

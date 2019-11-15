@@ -49,7 +49,7 @@ public class Thief extends Archetype {
     /**
      * Method to dodge an attack
      * @param dmg
-     * @return
+     * @return life of the thief after an attack
      */
     public int hurt(int dmg ){
         double R = Math.random();
@@ -61,6 +61,10 @@ public class Thief extends Archetype {
         return this.getLife();
     }
 
+    /**
+     * Method to hurt an opponent with a prospective special attack
+     * @return
+     */
     public int getDamages(){
         double R = Math.random();
         int d = super.getDamages();
@@ -73,8 +77,6 @@ public class Thief extends Archetype {
         else{
             this.canUseCriticalDamages = true;
         }
-
-
         return d;
     }
 }

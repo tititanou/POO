@@ -49,12 +49,11 @@ public class Thief extends Archetype {
     /**
      * Method to dodge an attack
      * @param dmg
-     * @param dodgeProba
      * @return
      */
-    public int hurt(int dmg , double dodgeProba){
+    public int hurt(int dmg ){
         double R = Math.random();
-        if (R > dodgeProba){
+        if (R < this.dodgeProba){
         }
         else {
             super.hurt(dmg);

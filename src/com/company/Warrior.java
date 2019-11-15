@@ -13,7 +13,7 @@ public class Warrior extends Archetype {
      * @param l
      * @param i
      */
-    Warrior(String n, int d, int l, int s, int i) {
+    Warrior(String n, int d, int l, int i, int s) {
         super(n, d, l, i);
         this.shield = s;
     }
@@ -24,7 +24,7 @@ public class Warrior extends Archetype {
     }
 
 
-    public int shieldHurt(int dmg) {
+    public int hurt(int dmg) {
 
         this.shield=this.shield-dmg;
         if (shield<0){

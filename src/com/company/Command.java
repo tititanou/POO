@@ -77,7 +77,7 @@ public class Command {
     /**
      *Method to create a character
      */
-    // Ne pas oublier de régler le problème sur les entrées inalides "iuhukjhjkbh"
+
     public static Archetype newCharacter(){
 
         int L;
@@ -244,6 +244,43 @@ public class Command {
         }
     }
 
+    private static Archetype selectCharacterForFighting(List<Archetype> characList, int numSelect){
+        //---------- choice of player ----------
+        Archetype myPlayer = null;
+        do {
+            Command.listCharacters(characList);
+            System.out.println("Choose YOUR character: #"+numSelect);
+            Scanner sc = new Scanner(System.in);
+            int characterChoice = sc.nextInt();
+            if (characterChoice >= 0 && characterChoice < characList.size()) {
+                myPlayer = characList.get(characterChoice);
+                System.out.println("Your choice is :\n " + myPlayer + "\n yes/no ?");
+                String input = sc.next();
+                String answer = input.toLowerCase();
+                if (!answer.equals("yes")){
+                    //renvoyer vers les choix du player1
+                    myPlayer = null;
+                }
+            }
+        } while( myPlayer == null);
+        return myPlayer;
+    }
+
+
+    public static void preparFight(List<Archetype>characList) {
+
+        Archetype p1 = Command.selectCharacterForFighting(characList,1);
+        Archetype p2 = Command.selectCharacterForFighting(characList,2);
+
+        // combat !!!!
+//        COMBAT(p1,p2);
+
+
+
+    }
+
+
+
     /**
      * Process requested command
      */
@@ -268,11 +305,7 @@ public class Command {
         }
         else if ( cmdNum == 5) {
 
-            System.out.println("Choose YOUR character: ");
-            Command.listCharacters(characList);
-
-            Command.displayCharacter(characList);
-            
+            preparFight(characList);
 
         }
         else if ( cmdNum == 6){

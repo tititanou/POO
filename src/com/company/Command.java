@@ -111,7 +111,58 @@ public class Command {
         return character;
     }
 
-    
+    public static void fight(Archetype a1 , Archetype a2){
+    Archetype c1;
+    Archetype c2;
+    int init1 = a1.getInitiative();
+    int init2 = a2.getInitiative();
+
+    if (init1 == init2){
+        double R = Math.random();
+        if(R >= 0.5){
+            init2 = 0;
+        }
+        else {
+            init1 = 0;
+        }
+    }
+
+    if(init1 < init2){
+        c1 = a2;
+        c2 = a1;
+    }
+    else {
+        c1 = a1;
+        c2 = a2;
+    }
+
+    int dmg;
+    int l;
+    Archetype assailant;
+    Archetype defender;
+    int i = 1;
+
+    do{
+        System.out.println("Round " + i);
+        if (i % 2 !=  0){
+            assailant = c1;
+            defender = c2;
+        }
+        else {
+            assailant = c2;
+            defender = c1;
+        }
+        dmg = assailant.getDamages();
+        defender.hurt(dmg);
+        System.out.println(assailant.getName() + " inflicts '" + dmg + " damages' points.");
+        l = defender.getLife();
+        i = i ++;
+    }
+    while (l > 0);
+    System.out.println("The " + assailant.getClass().getSimpleName() + " named " + assailant.getName() + " is the winner." );
+    }
+
+
     public static Warrior newWarrior(){
 
         int L;

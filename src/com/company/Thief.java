@@ -4,7 +4,7 @@ public class Thief extends Archetype {
 
     private double dodgeProba;
     private double criticalDamages;
-
+    private boolean canUseCriticalDamages;
 
     /**
      * Constructor method
@@ -35,6 +35,8 @@ public class Thief extends Archetype {
         return criticalDamages;
     }
 
+
+
     /**
      * To return the character's info
      */
@@ -62,13 +64,18 @@ public class Thief extends Archetype {
 
     public int getDamages(){
         double R = Math.random();
-        boolean canUseCriticalDamages = false;
-        if (R > criticalDamages){
-            canUseCriticalDamages = true;
-            return super.getDamages()*2;
+        int d = super.getDamages();
+        if ( this.canUseCriticalDamages == true){
+            if (R < this.criticalDamages){
+                d = d * 2;
+                this.canUseCriticalDamages = false;
+            }
         }
         else{
-            return super.getDamages();
+            this.canUseCriticalDamages = true;
         }
+
+
+        return d;
     }
 }
